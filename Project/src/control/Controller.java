@@ -72,7 +72,9 @@ public class Controller {
 				mFrame.showTable(result, null);
 				break;
 			case USER_FAVORITES:
+				select("select * from favorites where uid = ?:" + user[0]);
 				mFrame.switchSection(type);
+				mFrame.showTable(result, null);
 				break;
 			case UPLOAD_VIDEO:
 				select("select * from video where uid = ?:" + user[0]);

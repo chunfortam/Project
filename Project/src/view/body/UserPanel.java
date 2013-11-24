@@ -160,9 +160,6 @@ public class UserPanel extends JPanel implements WindowPanel, QueryGenerator, Ta
 	public void displayFavoritesSection(){
 		this.removeAll();
 		this.addSearchPanel();
-		//this.addSearchField(searchlayout);
-		resultPanel = new JPanel();
-		resultPanel.add(new JLabel("Under Construction"));
 		this.addResultPanel();
 		this.repaint();
 	}
