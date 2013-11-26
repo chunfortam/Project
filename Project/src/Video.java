@@ -25,26 +25,29 @@ public class Video implements TableListener{
 	
 	public void testTable(Model model) throws Exception{
 		model.select("select * from history");
-		String str = model.getResult() + "\n" + model.getResult() + "\n"+ model.getResult();
-		//System.out.println(str);
+		String str = model.getResult();
+		System.out.println(str);
 		
 		JFrame frame = new JFrame();
 		frame.setSize(600, 300);
-		TablePanel tp = new TablePanel("clear", null);
+		TablePanel tp = new TablePanel(str, this);
 		frame.add(tp);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 	}
 	
 	public void sqlTester(Model model) throws Exception{
-		int i = model.update("insert into user values (?,?,?):1003:naoki:naoki");
+		int i = model.update("delete from history where uid = 7 and vid = 516");
+		model.select("select * from history");
 		System.out.println(i);
+		System.out.println(model.getResult());
 	}
 
 	@Override
-	public void selectRow(String row) {
+	public void selectRow(String[] row) {
 		// TODO Auto-generated method stub
-		
+		for(int i = 0; i<row.length;i++)
+			System.out.println(row[i]);
 	}
 
 	@Override
